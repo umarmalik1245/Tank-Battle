@@ -28,16 +28,16 @@ document.addEventListener('keydown', function(event) {
 document.addEventListener('keyup', function(event) {
   switch (event.keyCode) {
     case 65: // A
-      movement.left = false;
+      movement.left = true;
       break;
     case 87: // W
-      movement.up = false;
+      movement.up = true;
       break;
     case 68: // D
-      movement.right = false;
+      movement.right = true;
       break;
     case 83: // S
-      movement.down = false;
+      movement.down = true;
       break;
   }
 });
@@ -49,7 +49,7 @@ socket.on('name', function(data) {
 socket.emit('new player');
 setInterval(function() {
   socket.emit('movement', movement);
-}, 1000 / 60);
+}, 1000 / 20);
 
 var canvas = document.getElementById('canvas');
 canvas.width = 800;
